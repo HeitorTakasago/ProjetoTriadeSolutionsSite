@@ -14,7 +14,6 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     color: white;
 }
 
@@ -23,8 +22,8 @@ body {
    =========================== */
 #mainNavbar {
     background: rgba(0, 0, 50, 0.92) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-bottom: 1px solid rgba(0, 102, 255, 0.3);
     padding: 12px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -610,7 +609,7 @@ form {
     flex-direction: column;
     gap: 15px;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
     padding: 40px;
     border-radius: 12px;
 }
