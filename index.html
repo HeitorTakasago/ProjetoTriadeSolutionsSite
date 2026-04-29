@@ -143,7 +143,7 @@
     <h2>Conheça a Tríade AI</h2>
     <h4>Veja como transformamos negócios com inteligência artificial.</h4>
     <div class="video-wrapper">
-        <video controls>
+        <video controls preload="none">
             <source src="./Videoheitor.mp4" type="video/mp4">
             Seu navegador não suporta esse tipo de vídeo.
             <track
@@ -470,9 +470,16 @@
 
 <!-- Navbar: efeito scroll + fechar menu mobile ao clicar em link -->
 <script>
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('mainNavbar');
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                document.getElementById('mainNavbar')
+                    .classList.toggle('scrolled', window.scrollY > 20);
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
 
     document.querySelectorAll('#navbarMain .nav-link').forEach(link => {
