@@ -85,7 +85,7 @@
         É sobre trabalhar de forma inteligente ⚡
     </h4>
     <div class="container-sobre">
-        <img src="triade.jpeg" alt="Equipe Tríade AI">
+        <img src="triade.jpeg" alt="Equipe Tríade AI" loading="lazy" decoding="async">
         <div class="texto">
             <h4>
                 Na Tríade AI criamos soluções inteligentes para empresas
@@ -267,13 +267,13 @@
     <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide">
-                <img src="PropostaAceita.png" alt="Proposta Aceita">
+                <img src="PropostaAceita.png" alt="Proposta Aceita" loading="lazy" decoding="async">
             </div>
             <div class="carousel-slide">
-                <img src="FeedBAckAna.jpeg" alt="Feedback Ana">
+                <img src="FeedBAckAna.jpeg" alt="Feedback Ana" loading="lazy" decoding="async">
             </div>
             <div class="carousel-slide">
-                <img src="PropostaCaio.png" alt="Proposta Caio">
+                <img src="PropostaCaio.png" alt="Proposta Caio" loading="lazy" decoding="async">
             </div>
         </div>
         <div class="arrow arrow-prev" id="prevBtn">&#8592;</div>
@@ -391,105 +391,7 @@
     © 2026 - Automação e Inteligência Artificial para negócios.
 </footer>
 
-<!-- Carousel -->
-<script>
-    const track = document.getElementById('carouselTrack');
-    const total = track.children.length;
-    const dotsEl = document.getElementById('carouselDots');
-    const counter = document.getElementById('carouselCounter');
-    let current = 0;
-
-    for (let i = 0; i < total; i++) {
-        const d = document.createElement('div');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => goTo(i);
-        dotsEl.appendChild(d);
-    }
-
-    function goTo(n) {
-        current = (n + total) % total;
-        track.style.transform = `translateX(-${current * 100}%)`;
-        document.querySelectorAll('.dot').forEach((d, i) =>
-            d.classList.toggle('active', i === current)
-        );
-        counter.textContent = `${current + 1} / ${total}`;
-    }
-
-    document.getElementById('prevBtn').onclick = () => goTo(current - 1);
-    document.getElementById('nextBtn').onclick = () => goTo(current + 1);
-</script>
-
-<!-- CONTADOR ANIMADO (Card 1 - Métricas) -->
-<script>
-    /*
-     * animarContador(el, target, suffix)
-     *   el      = elemento <span> onde o número aparece
-     *   target  = número final (lido do data-target do card)
-     *   suffix  = símbolo final (lido do data-suffix do card)
-     *
-     * Lógica: divide o número em ~112 passos (1800ms / 16ms por frame)
-     * e atualiza o texto a cada 16ms (~60fps) até chegar no target.
-     */
-    function animarContador(el, target, suffix) {
-        const duracao = 1800;
-        let inicio = null;
-
-        function step(ts) {
-            if (!inicio) inicio = ts;
-            const progresso = Math.min((ts - inicio) / duracao, 1);
-            el.textContent = Math.floor(progresso * target) + suffix;
-            if (progresso < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-    }
-
-    /*
-     * IntersectionObserver: monitora quando um elemento entra na viewport.
-     * threshold: 0.5 = dispara quando 50% do card está visível.
-     * data-animado: flag para não repetir a animação se o usuário rolar de volta.
-     */
-    const observerMetricas = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.dataset.animado) {
-                entry.target.dataset.animado = 'true'; // marca como animado
-                const el = entry.target.querySelector('.metrica-numero');
-                const target = parseInt(entry.target.dataset.target);
-                const suffix = entry.target.dataset.suffix;
-                animarContador(el, target, suffix);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    // Aplica o observer em todos os cards de métrica
-    document.querySelectorAll('.metrica-card').forEach(card => {
-        observerMetricas.observe(card);
-    });
-</script>
-
-<!-- Navbar: efeito scroll + fechar menu mobile ao clicar em link -->
-<script>
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                document.getElementById('mainNavbar')
-                    .classList.toggle('scrolled', window.scrollY > 20);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-
-    document.querySelectorAll('#navbarMain .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            const collapseEl = document.getElementById('navbarMain');
-            const bsCollapse = bootstrap.Collapse.getInstance(collapseEl);
-            if (bsCollapse) bsCollapse.hide();
-        });
-    });
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="exercicio.js"></script>
 </body>
 </html>
