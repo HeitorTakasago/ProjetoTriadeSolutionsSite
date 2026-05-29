@@ -596,7 +596,7 @@ footer a:hover { color: var(--accent); }
 .redes img { width: 28px; height: 28px; transition: transform 0.2s; }
 .redes img:hover { transform: scale(1.2); }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE — tablet (≤768px) === */
 @media (max-width: 768px) {
     section { padding: 80px 6%; }
     #home h1 { font-size: 42px; }
@@ -605,7 +605,57 @@ footer a:hover { color: var(--accent); }
     .container-sobre .texto h4 { text-align: center; }
     .carousel-slide { height: 260px; }
     .tabela-comparativa { font-size: 13px; }
-    .tabela-comparativa th, .tabela-comparativa td { padding: 10px 12px; }
+    .tabela-comparativa th,
+    .tabela-comparativa td { padding: 10px 12px; }
     form { padding: 28px 20px; }
     .metricas-grid { grid-template-columns: repeat(2, 1fr); }
+    .servicos-grid { grid-template-columns: 1fr; }
+    .depoimentos-grid { grid-template-columns: 1fr; }
+    .video-wrapper { max-width: 100%; }
+    .carousel-wrapper { max-width: 100%; }
+}
+
+/* === RESPONSIVE — mobile pequeno (≤480px) === */
+@media (max-width: 480px) {
+    section { padding: 60px 5%; }
+    #home { padding: 80px 16px 50px; }
+    #home h1 { font-size: 34px; }
+    #home h2 { font-size: 16px; }
+    #home h4 { font-size: 14px; }
+    .hero-cta { padding: 14px 28px; font-size: 15px; }
+
+    h2 { font-size: 24px; }
+
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .metrica-numero { font-size: 40px; }
+    .metrica-card { padding: 28px 12px; }
+
+    .servico { padding: 24px 20px; }
+    .flip-card { height: 240px; }
+
+    .carousel-slide { height: 220px; }
+    .arrow { width: 36px; height: 36px; font-size: 16px; }
+
+    .tabela-comparativa { font-size: 12px; }
+    .tabela-comparativa th,
+    .tabela-comparativa td { padding: 8px 8px; }
+
+    form { padding: 24px 16px; }
+
+    .container-sobre img { max-width: 260px; }
+
+    footer { padding: 36px 16px; }
+    footer ul { gap: 16px; }
+}
+
+/* === FLIP CARD — toque mobile (tap em vez de hover) === */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Hint para mobile */
+@media (hover: none) {
+    .flip-hint::after {
+        content: " (toque para ver)";
+    }
 }

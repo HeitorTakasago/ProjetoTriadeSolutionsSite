@@ -149,6 +149,13 @@ function initScrollReveal() {
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
+// === FLIP CARDS — suporte a toque mobile ===
+document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
+
 // === INIT ===
 initTheme();
 initScrollReveal();
